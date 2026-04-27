@@ -8,10 +8,8 @@ import {
     Toolbar,
     Box,
     Typography,
-    Divider,
     Avatar,
-    Chip,
-    IconButton
+    Chip
 } from '@mui/material';
 import {
     Dashboard,
@@ -20,9 +18,7 @@ import {
     Assignment,
     Assessment,
     Settings,
-    Person,
-    ChevronLeft,
-    ChevronRight
+    Person
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
