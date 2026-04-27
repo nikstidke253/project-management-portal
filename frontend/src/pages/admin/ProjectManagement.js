@@ -21,10 +21,9 @@ import {
     LinearProgress,
     Grid,
     Avatar,
-    AvatarGroup,
     Tooltip
 } from '@mui/material';
-import { Edit, Delete, Add, Assignment, CalendarToday, MoreVert } from '@mui/icons-material';
+import { Edit, Delete, Add, Assignment } from '@mui/icons-material';
 import { projectService, clientService, userService } from '../../services/api';
 import toast from 'react-hot-toast';
 

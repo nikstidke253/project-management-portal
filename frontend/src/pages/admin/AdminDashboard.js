@@ -14,8 +14,7 @@ import {
     Chip,
     CardActionArea,
     Paper,
-    Button,
-    Divider
+    Button
 } from '@mui/material';
 import {
     People,
@@ -36,7 +35,6 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend,
     PieChart,
     Pie,
     Cell,

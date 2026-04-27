@@ -7,21 +7,18 @@ import {
     Avatar,
     Button,
     TextField,
-    Divider,
     IconButton,
     CircularProgress,
     Chip,
     Tabs,
     Tab,
     Switch,
-    FormControlLabel,
     Stack
 } from '@mui/material';
 import { 
     PhotoCamera, 
     Security, 
     Person, 
-    Email, 
     Notifications as NotificationsIcon,
     Fingerprint,
     VerifiedUser,
