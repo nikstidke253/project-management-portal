@@ -8,21 +8,14 @@ import {
     LinearProgress,
     Button,
     IconButton,
-    Avatar,
     Chip,
     Paper,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemAvatar,
     Divider
 } from '@mui/material';
 import {
-    Dashboard,
     Assignment,
     CheckCircle,
     Pending,
-    Schedule,
     TrendingUp,
     Refresh,
     ArrowForward,
@@ -37,7 +30,6 @@ import toast from 'react-hot-toast';
 const UserDashboard = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
-    const [stats, setStats] = useState(null);
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -48,11 +40,10 @@ const UserDashboard = () => {
     const fetchDashboardData = async () => {
         try {
             setLoading(true);
-            const [statsRes, projectsRes] = await Promise.all([
+            const [, projectsRes] = await Promise.all([
                 reportService.getDashboardStats(),
                 projectService.getAll()
             ]);
-            setStats(statsRes.data.stats);
             setProjects(projectsRes.data.projects || []);
         } catch (error) {
             console.error('Error fetching dashboard data:', error);

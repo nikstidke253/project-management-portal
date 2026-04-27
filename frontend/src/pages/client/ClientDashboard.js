@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Grid,
     Card,
@@ -8,14 +8,11 @@ import {
     LinearProgress,
     List,
     ListItem,
-    ListItemText,
-    Avatar,
     Chip,
     Paper,
     CardActionArea,
     Divider,
     IconButton,
-    Tooltip,
     Button
 } from '@mui/material';
 import {
@@ -24,7 +21,6 @@ import {
     Pending,
     Notifications,
     TrendingUp,
-    MoreVert,
     CalendarToday
 } from '@mui/icons-material';
 import { projectService } from '../../services/api';
@@ -38,11 +34,7 @@ const ClientDashboard = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         try {
             const response = await projectService.getAll();
             setProjects(response.data.projects);
@@ -51,7 +43,11 @@ const ClientDashboard = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
 
     if (loading) return <LinearProgress sx={{ borderRadius: 2 }} />;
 

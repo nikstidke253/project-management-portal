@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
     Box, 
     Typography, 
@@ -22,7 +22,6 @@ import {
 import { 
     FileDownload, 
     FilterList, 
-    Assessment,
     Assignment,
     InfoOutlined,
     TrendingUp,
@@ -55,11 +54,7 @@ const ReportsPage = () => {
         endDate: ''
     });
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         setLoading(true);
         try {
             const params = {};
@@ -80,7 +75,11 @@ const ReportsPage = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [dateRange.startDate, dateRange.endDate]);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
 
     const handleExport = async () => {
         try {

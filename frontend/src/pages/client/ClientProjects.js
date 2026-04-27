@@ -24,7 +24,6 @@ import {
     Assignment, 
     Edit, 
     CalendarToday, 
-    Person, 
     TrendingUp,
     Schedule,
     CheckCircle
